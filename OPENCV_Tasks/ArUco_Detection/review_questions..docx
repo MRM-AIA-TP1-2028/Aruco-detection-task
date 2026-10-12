@@ -1,13 +1,13 @@
 Review questions.
 
-1) Whats the purpose of the computer matrix in the code? Does the camera matrix remain the same for all devices?
+1: What is the purpose of the computer matrix in the code? Does the camera matrix remain the same for all devices?
 
 A: cam_matrix relays instructions to solvePnP() how it should map the 3D world onto the 2D image so it can convert detected pixel corners into real position and rotation.
 
-2) Why is the orientation coefficent intialized to 0 in the code?
+2: Why is the orientation coefficent intialized to 0 in the code?
 
 A: (With reference to my code: aruco_detection_task.py) and setting them all to 0 shows that it should be assumed that the lens is an ideal lens with 0 distortion.
 
-3) What is the purpose of if _name_=="_main": in python? Will the code inside this block execute if __main__ is changed to another name?
+3: What is the purpose of if _name_=="_main": in python? Will the code inside this block execute if __main__ is changed to another name?
 
-A)  if __name__ == "__main__": runs the code inside it only when the script is executed directly, not when its imported by another file
+A:  if __name__ == "__main__": runs the code inside it only when the script is executed directly, not when its imported by another file. If the name is changed to something else, the condition becomes false and so the block will be skipped when the script is run directly.
