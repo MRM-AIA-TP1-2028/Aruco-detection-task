@@ -1,0 +1,60 @@
+REVIEW QUESTIONS
+
+1. Differences between .npz and .yaml?
+
+A: .npz is a compressed NumPy archive that stores numerical arrays and their names, ideal for saving calibration matrices, maps, and model weights.
+   .yaml is a human-readable data serialization format that is often used for configuration files and data exchange. It is easy to read and write, and supports a wide range of data types including scalars, lists, and nested structures.
+
+2. What is cv2.moments and what are its different return values?
+
+A: cv2.moments() computes shape moments up to third order and is used to find a contour’s centroid, area, orientation, and shape related properties.
+    The return values of cv2.moments() are a dictionary containing the keys as follows:
+    - 'm00': spatial moment (area)
+    - 'm10', 'm01': first order moments (used to calculate centroid)
+    - 'm20', 'm11', 'm02': second order moments (used to calculate orientation and shape properties)
+    - 'm30', 'm21', 'm12', 'm03': third order moments (used for more complex shape analysis)
+
+3. What is the difference between RTK AND RTCM? what is GNSS?
+
+A: GNSS (Global Navigation Satellite System) is a general term for satellite navigation systems that provide geospatial positioning with global coverage.
+
+RTK is a high-accuracy positioning technique that uses a known base station and carrier-phase measurements to give a rover centimeter-level position while RTCM
+gives a standard format for differential GNSS data, allowing the transmission of correction data from a base or correction source to a rover.
+
+
+4. What is legacy support?
+
+A: Legacy support refers to the continued support and maintenance of older software, hardware, or systems that may no longer be actively developed or updated. It ensures that users can still use these older systems without facing compatibility issues or losing functionality, even as new technologies and updates are introduced.
+
+5. What is spot turn in rover? how does the rover make a turn in general? the role of inertia here, how the rover turn right and left?
+
+A: A spot turn is turning the rover roughly about its own center, with minimal forward/backward travel. 
+
+In general, a rover makes a turn by adjusting the speed and direction of its wheels or tracks. For example, to turn right, the left wheels may move forward while the right wheels move backward or slower, causing the rover to pivot around its center.
+
+Inertia plays a role in the turning process as it resists changes in motion; the rover must overcome this inertia to initiate and complete the turn. The design of the rover's drive system and control algorithms also affects how effectively it can execute turns.
+
+6. Where would u use 9 daw and 6 daw? which is better in which scenario and which one would u use on the rover?
+
+A: 6-DoF means 3-axis accelerometer along with a 3-axis gyroscope: it measures linear acceleration and angular velocity.
+
+9-DoF adds a 3-axis magnetometer, providing a heading reference and helping correct yaw drift.
+
+In scenarios where orientation and heading are critical, such as navigation in environments with magnetic interference, a 9-DoF sensor would be preferred. 
+For simpler applications where only basic motion tracking is needed, a 6-DoF sensor may suffice.
+
+7. What is quaternion? and which method is better for measuring, quaternion or by roll, pitch and yaw(euler angles)?  justify your answer.
+
+A: A quaternion is a mathematical representation used to describe rotations in three-dimensional space. 
+It consists of four components: one real part and three imaginary parts, which allows for smooth interpolation and avoids gimbal lock issues that can occur with Euler angles.
+
+Quaternions are better for rover/IMU orientation because they avoid gimbal lock, interpolate smoothly, and are mathematically stable.
+
+8. What output does an IMU give?
+
+A: An IMU outputs 3-axis acceleration, 3-axis angular velocity (gyroscope), and  if its 9-DoF then it also gives 3-axis magnetic field readings.
+
+9. What is the difference between return at the end of the main program vs system exit at the end of main programme for python?
+
+A: return ends only the current function and gives a value back to its caller; in main(), it normally ends the program if main() is the last function called.
+   sys.exit() raises a SystemExit exception, which can be caught by outer code, and it can also be used to exit the program from anywhere in the code, not just exclusively from the main().
