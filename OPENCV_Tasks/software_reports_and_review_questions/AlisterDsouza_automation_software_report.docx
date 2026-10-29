@@ -1,0 +1,43 @@
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+                                        "Distinguishing between parts that can be automated and parts that cannot be automated."
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Name: Alister D. Dsouza                                                                                                        Date: 30-10-2026
+
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+What can be automated:
+
+Driving and navigation- Waypoint following, GNSS/RTK positioning, IMU/odometry fusion, obstacle avoidance using camera/LiDAR, and autonomous path planning.
+
+Camera/perception- Object, marker, aruco-tag, and terrain detection; target selection; local mapping.
+
+Robotic arm motion- Predefined joint trajectories, inverse kinematics, visual servoing, and collision-aware motion planning. Rover manipulation research commonly automates instrument placement and sample acquisition.
+
+Science-module sequence- Automated pumping, valve actuation, sample transfer, sensor readings, and test-result logging can be scripted.
+
+Telemetry and diagnostics- Battery voltage/current, motor temperature, GNSS status, IMU data, and fault flags can be monitored and logged automatically.
+
+Delivery/cache tasks- The rover can autonomously travel to a location and use vision to approach a cache or delivery marker, with the arm executing a learned/calibrated pick-and-place sequence. 
+
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+What cannot be automated:
+
+Safety concerns/decisions- A human operator should retain emergency stop, mission abort, and override authority, especially near people, obstacles, or unstable terrain.
+
+Unstructured manipulation- Grasping unknown objects, tangled cables, delicate equipment, or poorly visible targets is error-prone; autonomous grasping needs robust sensing and can still fail. 
+
+Complex science interpretation- The rover can collect data and run a test, but confirming an unexpected biological/chemical result should remain a human decision as vague or off deviated answers may lead to problems.
+
+Mechanical recovery- If the rover gets stuck, tipped, or entangled, a human operator may need to intervene to recover it safely.
+
+Communication loss / edge cases- If the rover loses communication with the operator or encounters an unexpected situation, human intervention may be required to resolve the issue.
+
+Competition strategy- Choosing task order, prioritizing scoring, and adapting to last-minute field changes are best handled by operators.
+
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+Conclusion:
+
+stuff like driving, navigation, perception, robotic arm motion, data logging etc: can be handled by automation while safety, complex decision-making, final day mission judgements should better be left to us humans.
